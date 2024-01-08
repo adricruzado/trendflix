@@ -5,25 +5,47 @@ import {
   IonTitle,
   IonContent,
   InfiniteScrollCustomEvent,
+  IonList,
+  IonItem,
+  IonSkeletonText,
+  IonAvatar,
+  IonAlert,
+  IonLabel,
 } from '@ionic/angular/standalone';
 import { MovieService } from '../services/movie.service';
 import { MovieResult } from '../services/interfaces';
 import { catchError, finalize } from 'rxjs';
+import { DatePipe } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-home',
   templateUrl: 'home.page.html',
   styleUrls: ['home.page.scss'],
   standalone: true,
-  imports: [IonHeader, IonToolbar, IonTitle, IonContent],
+  imports: [
+    IonHeader,
+    IonToolbar,
+    IonTitle,
+    IonContent,
+    IonList,
+    IonAvatar,
+    IonSkeletonText,
+    IonItem,
+    IonAlert,
+    IonLabel,
+    DatePipe,
+    RouterModule,
+  ],
 })
 export class HomePage {
   private movieService = inject(MovieService);
   private currentPage = 1;
-  private error = null;
-  private isLoading = false;
-  private movies: MovieResult[] = [];
+  public error = null;
+  public isLoading = false;
+  public movies: MovieResult[] = [];
   public imageBaseUrl = 'https://image.tmdb.org/t/p';
+  public skeletonStructure = new Array(5);
 
   constructor() {
     this.loadMovies();
@@ -57,7 +79,7 @@ export class HomePage {
           this.movies.push(...movies.results);
 
           if (event) {
-            event.target.disabled = movies.totalPages === this.currentPage;
+            event.target.disabled = movies.total_pages === this.currentPage;
           }
         },
       });
