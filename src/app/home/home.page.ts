@@ -11,6 +11,9 @@ import {
   IonAvatar,
   IonAlert,
   IonLabel,
+  IonBadge,
+  IonInfiniteScroll,
+  IonInfiniteScrollContent,
 } from '@ionic/angular/standalone';
 import { MovieService } from '../services/movie.service';
 import { MovieResult } from '../services/interfaces';
@@ -34,8 +37,11 @@ import { RouterModule } from '@angular/router';
     IonItem,
     IonAlert,
     IonLabel,
+    IonBadge,
     DatePipe,
     RouterModule,
+    IonInfiniteScroll,
+    IonInfiniteScrollContent,
   ],
 })
 export class HomePage {
@@ -86,6 +92,7 @@ export class HomePage {
   }
 
   loadMoreMovies(event: InfiniteScrollCustomEvent) {
-    this.movieService;
+    this.currentPage++;
+    this.loadMovies(event);
   }
 }
