@@ -18,7 +18,7 @@ import {
 import { MovieService } from '../services/movie.service';
 import { MovieResult } from '../services/interfaces';
 import { catchError, finalize } from 'rxjs';
-import { DatePipe } from '@angular/common';
+import { DatePipe, DecimalPipe } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
 @Component({
@@ -42,6 +42,7 @@ import { RouterModule } from '@angular/router';
     RouterModule,
     IonInfiniteScroll,
     IonInfiniteScrollContent,
+    DecimalPipe,
   ],
 })
 export class HomePage {

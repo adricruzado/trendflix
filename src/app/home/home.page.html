@@ -33,7 +33,7 @@
         <p>{{ movie.release_date | date: 'y'}}</p>
       </ion-label>
 
-      <ion-badge slot="end"> {{ movie.vote_average }}</ion-badge>
+      <ion-badge slot="end"> {{ movie.vote_average | number: '1.1-1' }}</ion-badge>
     </ion-item>
     } @empty {
     @if (!isLoading) {
