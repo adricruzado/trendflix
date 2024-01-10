@@ -19,12 +19,12 @@
     <ion-card-content>
       <ion-label> {{ movie.overview }} </ion-label>
 
-      <ion-item lines="none">
+      <ion-item class="item" lines="none">
         <ion-icon name="calendar-outline" slot="start"></ion-icon>
         <ion-label> {{ movie.release_date | date: 'y' }} </ion-label>
       </ion-item>
 
-      <ion-item lines="none">
+      <ion-item class="item" lines="none">
         <ion-icon name="heart-outline" slot="start"></ion-icon>
         <ion-label> {{ movie.vote_average | number: '1.1-1' }} / 10 </ion-label>
       </ion-item>
