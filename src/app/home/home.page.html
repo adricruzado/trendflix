@@ -28,7 +28,7 @@
         <img [src]="imageBaseUrl + '/w92' + movie.poster_path" [alt]="movie.title" />
       </ion-avatar>
 
-      <ion-label class="ion-text-wrap">
+      <ion-label button [routerLink]="['/details', movie.id]" class="ion-text-wrap">
         <h3>{{ movie.title }}</h3>
         <p>{{ movie.release_date | date: 'y'}}</p>
       </ion-label>
